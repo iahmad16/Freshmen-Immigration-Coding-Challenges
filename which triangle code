@@ -1,0 +1,33 @@
+def whichTriangle(a,b,c): #TASK 1
+    angle = 0
+    if a+b>c and b+c>a and a+c>b:
+        if (int(a**2) == int(b**2) + int(c**2)) or (int(b**2) == int(a**2) + int(c**2)) or (int(c**2) == int(a**2) + int(b**2)):
+            return 1
+        elif a==b and b==c and a==c:
+            return 3
+        elif a==b or b==c or a==c:
+            if a > b and a > c:
+                angle = degrees(acos((a**2 - b**2 - c**2)/(-2 * b * c)))
+            if b > a and b > c:
+                angle = degrees(acos((b**2 - a**2 - c**2)/(-2 * a * c)))
+            if c > a and c > b:
+                angle = degrees(acos((c**2 - a**2 - b**2)/(-2 * b * a)))
+
+            if angle >= 90 and angle <= 180:
+                return 5
+            if angle >= 0 and angle <= 90:
+                return 7
+        elif a!=b and b!=c and a!=c:
+            if a > b and a > c:
+                angle = degrees(acos((a**2 - b**2 - c**2)/(-2 * b * c)))
+            if b > a and b > c:
+                angle = degrees(acos((b**2 - a**2 - c**2)/(-2 * a * c)))
+            if c > b and c > a:
+                angle = degrees(acos((c**2 - a**2 - b**2)/(-2 * b * a)))
+
+            if angle >= 90 and angle <= 180:
+                return 4
+            if angle >=0 and angle <=90:
+                return 6
+    else:
+        return 0
