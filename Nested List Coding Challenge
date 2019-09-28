@@ -1,0 +1,21 @@
+if __name__ == '__main__':
+    number=int(input())
+    students=[]
+    grades=[]
+    for i in range(number):
+        name = input()
+        score = float(input())
+        students.append([name,score])
+    students.sort()
+
+
+
+    for i in range(number):
+        grades.append(students[i][1])
+    grades.sort()
+    grades.remove(min(grades))
+
+
+    for i in range(number):
+        if students[i][1]==grades[0]:
+            print(students[i][0])
